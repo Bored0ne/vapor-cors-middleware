@@ -2,8 +2,9 @@ import Foundation
 import Vapor
 import HTTP
 
-class VaporCorsMiddleware: Middleware {
-    func respond(to request: Request, chainingTo next: Responder) throws -> Response {
+public class VaporCorsMiddleware: Middleware {
+    public init(){}
+    public func respond(to request: Request, chainingTo next: Responder) throws -> Response {
         let response = try next.respond(to: request)
 
         for header in request.headers{
